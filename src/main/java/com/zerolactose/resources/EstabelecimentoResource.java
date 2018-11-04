@@ -3,6 +3,7 @@ package com.zerolactose.resources;
 import java.net.URI;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +22,7 @@ import com.zerolactose.services.EstabelecimentoService;
 @RequestMapping(value="/estabelecimentos")
 public class EstabelecimentoResource {
 
+	@Autowired
 	private EstabelecimentoService service;
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
