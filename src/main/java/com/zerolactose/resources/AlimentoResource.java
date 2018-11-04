@@ -35,6 +35,11 @@ public class AlimentoResource {
 		return service.findAll();
 	}
 	
+	@RequestMapping(value="categoria/{id}", method=RequestMethod.GET)
+	public List<Alimento> buscarTodosAlimentosCategoria(@PathVariable Integer id) {
+		return service.buscarAlimentoCategoria(id);
+	}
+	
 	@RequestMapping(method=RequestMethod.POST)
 	public ResponseEntity<Void> inserir(@RequestBody Alimento alimento){
 		alimento = service.save(alimento);

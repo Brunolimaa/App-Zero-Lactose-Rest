@@ -37,4 +37,8 @@ public class AlimentoService {
 		repo.deleteById(id);
 	}
 	
+	public List<Alimento> buscarAlimentoCategoria(Integer id) {
+		return repo.findByCategoria(id);
+	}
+	
 }
