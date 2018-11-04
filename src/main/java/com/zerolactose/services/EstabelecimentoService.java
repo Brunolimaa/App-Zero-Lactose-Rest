@@ -27,6 +27,11 @@ public class EstabelecimentoService {
 	}
 	
 	public Estabelecimento save(Estabelecimento estabelecimento) {
+		estabelecimento.setId(null);
+		return repo.save(estabelecimento);
+	}
+	
+	public Estabelecimento update(Estabelecimento estabelecimento) {
 		return repo.save(estabelecimento);
 	}
 }

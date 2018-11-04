@@ -42,5 +42,12 @@ public class AlimentoResource {
 				.path("/{id}").buildAndExpand(alimento.getId()).toUri();
 		return ResponseEntity.created(uri).build();	
 	}
+	
+	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
+	public ResponseEntity<Void> update(@RequestBody Alimento alimento, @PathVariable Integer id){
+		alimento.setId(id);
+		alimento = service.update(alimento);
+		return ResponseEntity.noContent().build();
+	}
 
 }

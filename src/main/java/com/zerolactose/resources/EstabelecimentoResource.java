@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.zerolactose.domain.Categoria;
 import com.zerolactose.domain.Estabelecimento;
 import com.zerolactose.services.EstabelecimentoService;
 
@@ -39,5 +40,12 @@ public class EstabelecimentoResource {
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
 				.path("/{id}").buildAndExpand(entity.getId()).toUri();
 		return ResponseEntity.created(uri).build();	
+	}
+	
+	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
+	public ResponseEntity<Void> update(@RequestBody Estabelecimento entity, @PathVariable Integer id){
+		entity.setId(id);
+		entity = service.update(entity);
+		return ResponseEntity.noContent().build();
 	}
 }

@@ -29,4 +29,8 @@ public class AlimentoService {
 		return repo.save(alimento);
 	}
 	
+	public Alimento update(Alimento alimento) {
+		return repo.save(alimento);
+	}
+	
 }
