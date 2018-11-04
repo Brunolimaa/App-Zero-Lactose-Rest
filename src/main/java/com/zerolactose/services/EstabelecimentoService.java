@@ -34,4 +34,8 @@ public class EstabelecimentoService {
 	public Estabelecimento update(Estabelecimento estabelecimento) {
 		return repo.save(estabelecimento);
 	}
+	
+	public void delete(Integer id) {
+		repo.deleteById(id);
+	}
 }

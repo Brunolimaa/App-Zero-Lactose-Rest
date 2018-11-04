@@ -33,4 +33,8 @@ public class AlimentoService {
 		return repo.save(alimento);
 	}
 	
+	public void delete(Integer id) {
+		repo.deleteById(id);
+	}
+	
 }
