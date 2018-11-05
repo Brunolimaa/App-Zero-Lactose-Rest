@@ -17,15 +17,15 @@ public class Estabelecimento {
 	private String cidade;
 	private String estado;
 	private String telefone;
-	private String latitude;
-	private String longitude;
+	private Double latitude;
+	private Double longitude;
 	
 	public Estabelecimento() {
 		
 	}
 	
 	public Estabelecimento(Integer id, String nome, String descricao, String foto, String endereco, String cidade,
-			String estado, String telefone, String latitude, String longitude) {
+			String estado, String telefone, Double latitude, Double longitude) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -38,6 +38,7 @@ public class Estabelecimento {
 		this.latitude = latitude;
 		this.longitude = longitude;
 	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -86,16 +87,20 @@ public class Estabelecimento {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-	public String getLatitude() {
+
+	public Double getLatitude() {
 		return latitude;
 	}
-	public void setLatitude(String latitude) {
+
+	public void setLatitude(Double latitude) {
 		this.latitude = latitude;
 	}
-	public String getLongitude() {
+
+	public Double getLongitude() {
 		return longitude;
 	}
-	public void setLongitude(String longitude) {
+
+	public void setLongitude(Double longitude) {
 		this.longitude = longitude;
 	}
 
