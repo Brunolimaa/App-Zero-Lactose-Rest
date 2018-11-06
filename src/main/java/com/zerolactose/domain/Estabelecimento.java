@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 
 @Entity
 public class Estabelecimento {
@@ -14,29 +15,30 @@ public class Estabelecimento {
 	private String descricao;
 	private String foto;
 	private String endereco;
-	private String cidade;
-	private String estado;
+	private Integer estado;
 	private String telefone;
 	private Double latitude;
 	private Double longitude;
+	@JoinColumn(name="cod_cidade")
+	private Integer cidade;
 	
 	public Estabelecimento() {
 		
 	}
-	
-	public Estabelecimento(Integer id, String nome, String descricao, String foto, String endereco, String cidade,
-			String estado, String telefone, Double latitude, Double longitude) {
+
+	public Estabelecimento(Integer id, String nome, String descricao, String foto, String endereco, Integer estado,
+			String telefone, Double latitude, Double longitude, Integer cidade) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.descricao = descricao;
 		this.foto = foto;
 		this.endereco = endereco;
-		this.cidade = cidade;
 		this.estado = estado;
 		this.telefone = telefone;
 		this.latitude = latitude;
 		this.longitude = longitude;
+		this.cidade = cidade;
 	}
 
 	public Integer getId() {
@@ -69,16 +71,11 @@ public class Estabelecimento {
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
-	public String getCidade() {
-		return cidade;
-	}
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
-	public String getEstado() {
+	
+	public Integer getEstado() {
 		return estado;
 	}
-	public void setEstado(String estado) {
+	public void setEstado(Integer estado) {
 		this.estado = estado;
 	}
 	public String getTelefone() {
@@ -104,4 +101,12 @@ public class Estabelecimento {
 		this.longitude = longitude;
 	}
 
+	public Integer getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(Integer cidade) {
+		this.cidade = cidade;
+	}	
+	
 }

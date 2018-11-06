@@ -31,6 +31,11 @@ public class EstabelecimentoResource {
 		return ResponseEntity.ok().body(obj);
 	}
 	
+	@RequestMapping(value="/cidade/{id}", method=RequestMethod.GET)
+	public List<Estabelecimento> buscarCidade(@PathVariable Integer id) {
+		return service.findBydIdCidade(id);
+	}
+	
 	@RequestMapping(method=RequestMethod.GET)
 	public List<Estabelecimento> buscarTodos(){
 		return service.findAll();

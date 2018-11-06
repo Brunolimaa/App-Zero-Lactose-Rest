@@ -21,6 +21,10 @@ public class EstabelecimentoService {
 		return obj.orElse(null);
 	}
 	
+	public List<Estabelecimento> findBydIdCidade(Integer id) {
+		return repo.findByEstado(id);
+	}
+	
 	public List<Estabelecimento> findAll(){
 		List<Estabelecimento> lista = repo.findAll();
 		return lista;
