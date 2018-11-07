@@ -25,6 +25,11 @@ public class CidadeService {
 		return lista;
 	}
 	
+	public List<Cidade> findAllEstado(Integer id){
+		List<Cidade> lista = repo.findByEstado(id);
+		return lista;
+	}
+	
 	public Cidade save(Cidade cidade) {
 		cidade.setId(null);
 		return repo.save(cidade);

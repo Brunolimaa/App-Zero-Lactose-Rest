@@ -35,6 +35,11 @@ public class CidadeResource {
 		return service.findAll();
 	}
 	
+	@RequestMapping(value="/estado/{id}", method=RequestMethod.GET)
+	public List<Cidade> findAllEstado(@PathVariable Integer id){
+		return service.findAllEstado(id);
+	}
+	
 	@RequestMapping(method=RequestMethod.POST)
 	public ResponseEntity<Void> inserir(@RequestBody Cidade entity){
 		entity = service.save(entity);
