@@ -3,6 +3,7 @@ package com.zerolactose.services;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.zerolactose.domain.ModoPreparo;
@@ -11,6 +12,7 @@ import com.zerolactose.repositories.ModoPreparoRepository;
 @Service
 public class ModoPreparoService {
 	
+	@Autowired
 	private ModoPreparoRepository repo;
 	
 	public ModoPreparo findBydId(Integer id) {

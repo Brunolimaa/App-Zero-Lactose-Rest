@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 06-Nov-2018 às 23:42
+-- Generation Time: 22-Nov-2018 às 02:32
 -- Versão do servidor: 10.1.34-MariaDB
 -- PHP Version: 7.0.31
 
@@ -5725,6 +5725,46 @@ INSERT INTO `estado` (`id`, `nome`, `sigla`) VALUES
 (26, 'São Paulo', 'SP'),
 (27, 'Tocantins', 'TO');
 
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `ingrediente`
+--
+
+CREATE TABLE `ingrediente` (
+  `id` int(11) NOT NULL,
+  `ingredientes` int(11) DEFAULT NULL,
+  `txt` varchar(255) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `modo_preparo`
+--
+
+CREATE TABLE `modo_preparo` (
+  `id` int(11) NOT NULL,
+  `modo_preparo` int(11) DEFAULT NULL,
+  `txt` varchar(255) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `receita`
+--
+
+CREATE TABLE `receita` (
+  `id` int(11) NOT NULL,
+  `descricao` varchar(255) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `nome` varchar(255) DEFAULT NULL,
+  `por` varchar(255) DEFAULT NULL,
+  `preparo` varchar(255) DEFAULT NULL,
+  `rendimento` varchar(255) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
 --
 -- Indexes for dumped tables
 --
@@ -5763,6 +5803,26 @@ ALTER TABLE `estado`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `ingrediente`
+--
+ALTER TABLE `ingrediente`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FKpadqc20gdoa93jx1jy1cgvha9` (`ingredientes`);
+
+--
+-- Indexes for table `modo_preparo`
+--
+ALTER TABLE `modo_preparo`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FK3cx4uak2qu2ql3xxjmdi4o4ad` (`modo_preparo`);
+
+--
+-- Indexes for table `receita`
+--
+ALTER TABLE `receita`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -5795,6 +5855,24 @@ ALTER TABLE `estabelecimento`
 --
 ALTER TABLE `estado`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
+-- AUTO_INCREMENT for table `ingrediente`
+--
+ALTER TABLE `ingrediente`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `modo_preparo`
+--
+ALTER TABLE `modo_preparo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `receita`
+--
+ALTER TABLE `receita`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
