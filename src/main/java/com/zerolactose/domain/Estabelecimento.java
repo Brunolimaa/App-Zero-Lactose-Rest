@@ -19,6 +19,7 @@ public class Estabelecimento {
 	private String telefone;
 	private Double latitude;
 	private Double longitude;
+	private Boolean status;
 	@JoinColumn(name="cod_cidade")
 	private Integer cidade;
 	
@@ -27,7 +28,7 @@ public class Estabelecimento {
 	}
 
 	public Estabelecimento(Integer id, String nome, String descricao, String foto, String endereco, Integer estado,
-			String telefone, Double latitude, Double longitude, Integer cidade) {
+			String telefone, Double latitude, Double longitude, Boolean status, Integer cidade) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -38,6 +39,7 @@ public class Estabelecimento {
 		this.telefone = telefone;
 		this.latitude = latitude;
 		this.longitude = longitude;
+		this.status = status;
 		this.cidade = cidade;
 	}
 
@@ -107,6 +109,13 @@ public class Estabelecimento {
 
 	public void setCidade(Integer cidade) {
 		this.cidade = cidade;
+	}
+
+	public Boolean getStatus() {
+		return status;
+	}
+
+	public void setStatus(Boolean status) {
+		this.status = status;
 	}	
-	
 }

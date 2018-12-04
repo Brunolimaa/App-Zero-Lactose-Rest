@@ -10,4 +10,6 @@ import com.zerolactose.domain.Estabelecimento;
 @Repository
 public interface EstabelecimentoRepository extends JpaRepository<Estabelecimento, Integer> {
 	List<Estabelecimento> findByEstado(Integer id);
+	
+	List<Estabelecimento> findByStatusIsTrue();
 }

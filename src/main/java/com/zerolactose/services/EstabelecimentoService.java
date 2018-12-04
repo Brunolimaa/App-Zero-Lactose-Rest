@@ -26,7 +26,7 @@ public class EstabelecimentoService {
 	}
 	
 	public List<Estabelecimento> findAll(){
-		List<Estabelecimento> lista = repo.findAll();
+		List<Estabelecimento> lista = repo.findByStatusIsTrue();
 		return lista;
 	}
 	
