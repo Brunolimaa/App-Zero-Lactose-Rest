@@ -1,5 +1,6 @@
 package com.zerolactose.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,13 +23,18 @@ public class Estabelecimento {
 	private Boolean status;
 	@JoinColumn(name="cod_cidade")
 	private Integer cidade;
+	@Column(name="cidade_desc")
+	private String cidadeDesc;
+	@Column(name="estado_desc")
+	private String estadoDesc;
 	
 	public Estabelecimento() {
 		
 	}
 
 	public Estabelecimento(Integer id, String nome, String descricao, String foto, String endereco, Integer estado,
-			String telefone, Double latitude, Double longitude, Boolean status, Integer cidade) {
+			String telefone, Double latitude, Double longitude, Boolean status, Integer cidade, String cidadeDesc,
+			String estadoDesc) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -41,6 +47,8 @@ public class Estabelecimento {
 		this.longitude = longitude;
 		this.status = status;
 		this.cidade = cidade;
+		this.cidadeDesc = cidadeDesc;
+		this.estadoDesc = estadoDesc;
 	}
 
 	public Integer getId() {
@@ -117,5 +125,22 @@ public class Estabelecimento {
 
 	public void setStatus(Boolean status) {
 		this.status = status;
+	}
+
+	public String getCidadeDesc() {
+		return cidadeDesc;
+	}
+
+	public void setCidadeDesc(String cidadeDesc) {
+		this.cidadeDesc = cidadeDesc;
+	}
+
+	public String getEstadoDesc() {
+		return estadoDesc;
+	}
+
+	public void setEstadoDesc(String estadoDesc) {
+		this.estadoDesc = estadoDesc;
 	}	
+	
 }
