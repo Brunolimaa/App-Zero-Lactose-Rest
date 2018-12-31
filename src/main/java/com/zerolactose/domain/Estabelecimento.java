@@ -1,11 +1,18 @@
 package com.zerolactose.domain;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+
+import com.zerolactose.services.AlimentoService;
 
 @Entity
 public class Estabelecimento {
@@ -27,6 +34,12 @@ public class Estabelecimento {
 	private String cidadeDesc;
 	@Column(name="estado_desc")
 	private String estadoDesc;
+	@ManyToMany
+	@JoinTable(name="estabelecimento_alimentos", 
+	joinColumns={@JoinColumn(name="id_estabelecimento")}, 
+	inverseJoinColumns={@JoinColumn(name="id_alimento")}
+	)
+	private List<Alimento> alimentos;
 	
 	public Estabelecimento() {
 		
@@ -34,7 +47,7 @@ public class Estabelecimento {
 
 	public Estabelecimento(Integer id, String nome, String descricao, String foto, String endereco, Integer estado,
 			String telefone, Double latitude, Double longitude, Boolean status, Integer cidade, String cidadeDesc,
-			String estadoDesc) {
+			String estadoDesc, List<Alimento> alimentos) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -49,6 +62,7 @@ public class Estabelecimento {
 		this.cidade = cidade;
 		this.cidadeDesc = cidadeDesc;
 		this.estadoDesc = estadoDesc;
+		this.alimentos = alimentos;
 	}
 
 	public Integer getId() {
@@ -141,6 +155,14 @@ public class Estabelecimento {
 
 	public void setEstadoDesc(String estadoDesc) {
 		this.estadoDesc = estadoDesc;
-	}	
-	
+	}
+
+	public List<Alimento> getAlimentos() {
+		return alimentos;
+	}
+
+	public void setAlimentos(List<Alimento> alimentos) {
+		this.alimentos = alimentos;
+	}
+		
 }
